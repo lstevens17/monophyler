@@ -2,7 +2,7 @@
 
 Reimplementation of some features in PhyloTreePruner, as it's problematic to run and has some annoying input requirements. 
 
-Given a tree with two loci for one or more species, it will determine if both loci are monophyletic/in-paralagous and spit out the largest sequence of the two, yielding a FASTA of single-copy orthologs
+Given a tree with two loci for one or more species, it will determine if both loci are monophyletic/in-paralagous (as is, or after collapsing nodes with support values below a given threshold) and spit out the largest sequence of the two, yielding a FASTA of single-copy orthologs.
 
 USAGE:
 	`./monophyler.py [tree_with_bootstraps.nwk] [unaligned_seqs.fa] [min_bootstrap_val]`
