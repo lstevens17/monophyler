@@ -49,9 +49,9 @@ def identify_monophyly(tree, dup_list, fasta_dict, threshold):
 				monophyletic_list.append(seq_list[0].split(".")[0])
 	return monophyletic_list
 
-def write_file(monophyletic_list, dup_list, fasta_dict):
+def write_file(monophyletic_list, dup_list, fasta_dict, fasta):
 	if sorted(monophyletic_list) == sorted(dup_list):
-		with open(sys.argv[1] + "_pruned", 'w') as outfile:
+		with open(fasta + "_pruned", 'w') as outfile:
 			output_dict = {}
 			for seq in fasta_dict:
 				species = seq.split(".")[0]
@@ -84,4 +84,4 @@ if __name__ == "__main__":
 	dup_list = find_dups(fasta_dict)
 	tree = parse_tree(tree)
 	monophyletic_list = identify_monophyly(tree, dup_list, fasta_dict, threshold)
-	write_file(monophyletic_list, dup_list, fasta_dict)
+	write_file(monophyletic_list, dup_list, fasta_dict, fasta)
